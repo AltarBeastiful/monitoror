@@ -9,7 +9,8 @@ type TileState = {
   label?: string,
   message?: string,
   metrics?: TileMetrics,
-  build?: TileBuild
+  build?: TileBuild,
+  link?: string
 }
 
 export default TileState

@@ -15,6 +15,8 @@ type (
 
 		Metrics *TileMetrics `json:"metrics,omitempty"`
 		Build   *TileBuild   `json:"build,omitempty"`
+
+		Link string `json:"link,omitempty"`
 	}
 
 	TileType   string //PING, PORT, ... (defined in usecase.go for each monitorable)

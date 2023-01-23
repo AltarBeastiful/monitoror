@@ -1,7 +1,15 @@
 <template>
   <div class="c-monitoror-tile" :class="classes" :style="styles">
     <div class="c-monitoror-tile--content" v-if="!isEmpty">
-      <div class="c-monitoror-tile--label">
+      <div v-if="link" class="c-monitoror-tile--label">
+        <a :href="link" target="_blank">
+          <template v-if="mergeRequestLabelPrefix">{{ mergeRequestLabelPrefix }}</template>
+          <template v-if="mergeRequestLabelPrefix && label"> @</template>
+          {{ label }}
+        </a>
+      </div>
+
+      <div v-else class="c-monitoror-tile--label">
         <template v-if="mergeRequestLabelPrefix">{{ mergeRequestLabelPrefix }}</template>
         <template v-if="mergeRequestLabelPrefix && label"> @</template>
         {{ label }}
@@ -103,6 +111,7 @@ export default defineComponent({
 
       // content
       label,
+      link,
 
       // build
       build,
@@ -219,6 +228,7 @@ export default defineComponent({
       // content
       label,
       message,
+      link,
       displayedSubTiles,
 
       // build

@@ -56,6 +56,7 @@ func (hu *httpUsecase) HTTPFormatted(params *models.HTTPFormattedParams) (*coreM
 func (hu *httpUsecase) httpAll(tileType coreModels.TileType, params models.GenericParamsProvider) (*coreModels.Tile, error) {
 	tile := coreModels.NewTile(tileType)
 	tile.Label = params.GetURL()
+	tile.Link = params.GetURL()
 	tile.Status = coreModels.SuccessStatus
 
 	// Download page
